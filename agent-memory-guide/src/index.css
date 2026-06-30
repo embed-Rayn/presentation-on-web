@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Font Families */
+  --font-sans: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Fira Code', Courier, monospace;
+
+  /* Spacing Scale (Keynote/Pitch standard) */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2.5rem;   /* 40px */
+  --space-xl: 4rem;     /* 64px */
+  --space-xxl: 6.5rem;  /* 104px */
+  
+  /* Transition curve */
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+  
+  /* Aspect Ratio defaults */
+  --slide-width: 1920px;
+  --slide-height: 1080px;
+}
+
+/* 1. Theme: Light (Minimalist White) */
+[data-theme='light'] {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f3f5;
+  --text-primary: #121214;
+  --text-secondary: #4a5056;
+  --text-muted: #868e96;
+  --accent: #2563eb;
+  --accent-light: rgba(37, 99, 235, 0.08);
+  --accent-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  --border-color: rgba(0, 0, 0, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+}
+
+/* 2. Theme: Dark (Premium Charcoal) */
+[data-theme='dark'] {
+  --bg-primary: #0a0b0d;
+  --bg-secondary: #121316;
+  --bg-tertiary: #1a1c20;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --accent: #6366f1;
+  --accent-light: rgba(99, 102, 241, 0.12);
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+  --border-color: rgba(255, 255, 255, 0.05);
+  --card-bg: rgba(20, 21, 25, 0.6);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(18, 19, 22, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.03);
+}
+
+/* 3. Theme: Velvet Midnight (Luxury Royal Purple) */
+[data-theme='midnight'] {
+  --bg-primary: #070314;
+  --bg-secondary: #100a26;
+  --bg-tertiary: #1a123a;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --accent: #d946ef;
+  --accent-light: rgba(217, 70, 239, 0.12);
+  --accent-gradient: linear-gradient(135deg, #d946ef 0%, #8b5cf6 100%);
+  --border-color: rgba(217, 70, 239, 0.1);
+  --card-bg: rgba(16, 10, 38, 0.6);
+  --card-shadow: 0 10px 40px 0 rgba(217, 70, 239, 0.08);
+  --glass-bg: rgba(11, 6, 28, 0.75);
+  --glass-border: rgba(217, 70, 239, 0.06);
+}
+
+/* 4. Theme: Premium Forest (Calm Nature Green) */
+[data-theme='forest'] {
+  --bg-primary: #0b130e;
+  --bg-secondary: #132219;
+  --bg-tertiary: #1d3326;
+  --text-primary: #f4fbf7;
+  --text-secondary: #a7cfb9;
+  --text-muted: #6b8d7a;
+  --accent: #10b981;
+  --accent-light: rgba(16, 185, 129, 0.12);
+  --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --border-color: rgba(16, 185, 129, 0.08);
+  --card-bg: rgba(19, 34, 25, 0.6);
+  --card-shadow: 0 10px 40px 0 rgba(16, 185, 129, 0.05);
+  --glass-bg: rgba(10, 18, 13, 0.8);
+  --glass-border: rgba(16, 185, 129, 0.04);
+}
+
+/* 5. Theme: Terracotta Sunset (Warm Earthy Sand) */
+[data-theme='terracotta'] {
+  --bg-primary: #fcf9f5;
+  --bg-secondary: #f6efe6;
+  --bg-tertiary: #ebe0cf;
+  --text-primary: #2d221e;
+  --text-secondary: #6e5c54;
+  --text-muted: #9e8b82;
+  --accent: #dd6b20;
+  --accent-light: rgba(221, 107, 32, 0.08);
+  --accent-gradient: linear-gradient(135deg, #dd6b20 0%, #e88f4c 100%);
+  --border-color: rgba(221, 107, 32, 0.08);
+  --card-bg: rgba(246, 239, 230, 0.8);
+  --card-shadow: 0 8px 32px 0 rgba(221, 107, 32, 0.04);
+  --glass-bg: rgba(246, 239, 230, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.6);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  user-select: none;
+  transition: background-color 0.5s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+}
+
+/* Modern Typography with hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.font-serif-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+}
+
+p {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Slide Container and Scaler */
+.presentation-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide-wrapper {
+  position: relative;
+  width: var(--slide-width);
+  height: var(--slide-height);
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform-origin: center center;
+  transition: box-shadow 0.3s ease;
+}
+
+/* If inside iframe or in speaker mode, borderless presentation */
+.fullscreen-mode .slide-wrapper {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.slide-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-xl) var(--space-xxl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Slides layouts generic styles */
+.slide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.slide-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.slide-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-xs);
+}
+
+.slide-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--space-sm);
+}
+
+/* Scrollbar styles for layouts */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Printing styles for PDF export */
+@media print {
+  body {
+    overflow: visible;
+    height: auto;
+    width: auto;
+    background: #fff !important;
+  }
+  .presentation-container {
+    height: auto;
+    width: auto;
+    display: block;
+    background: #fff;
+  }
+  .slide-wrapper {
+    transform: none !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 0 20px 0 !important;
+    page-break-after: always;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+  }
+  .slide-controls, .theme-selector, .presenter-view-button {
+    display: none !important;
+  }
+}

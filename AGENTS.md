@@ -23,6 +23,8 @@ To ensure presentations look like premium custom-built decks (comparable to Gamm
 - **Rich Elements**: Prefer cards, timelines, comparison tables, process diagrams, stats counters, quote blocks, and infographics over plain text.
 - **Standard Markdown Tables**: Use clean markdown tables. The frontend automatically renders them as stylized HTML tables.
 - **Emphasizing Text**: Use bold formatting (`<strong>` or `**`) and highlight colors (e.g., `<span style="color: var(--accent)">`) for key concepts. Do not summarize so much that core technical logic is lost.
+- **Concise & Outline Style**: 슬라이드 본문은 줄글 형태를 지양하고, 핵심 요약 위주의 **개요식 구조**와 **명사형 맺음**(예: ~함, ~구축, ~제공 등)으로 작성하여 가독성을 극대화해야 함.
+
 
 ---
 
